@@ -12,9 +12,13 @@ console.log(fibs(8));
 
 function fibsRec(n) {
   if (n === 0) return [];
-  if (n === 1) return [n - 1];
-  if (n === 2) return [n - 2, n - 1];
+  if (n === 1) return [0];
+  if (n === 2) return [0, 1];
+  else {
+    const output = fibsRec(n - 1);
+    output.push(output[output.length - 1] + output[output.length - 2]);
+    return output;
   }
-  
+}
 
-console.log(fibsRec(2));
+console.log(fibsRec(8));
